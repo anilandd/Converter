@@ -46,6 +46,7 @@ struct ContentView: View {
                 
                 Section(header: Text("Temperature")) {
                     TextField("Temperature", text:  $tempOrigin)
+                        .keyboardType(.decimalPad)
                 }
                 
                 Section(header: Text("Input  unit")) {

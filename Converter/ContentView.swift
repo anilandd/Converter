@@ -16,27 +16,32 @@ struct ContentView: View {
     let types = ["Celsius", "Fahrenheit", "Kelvin"]
     
     var tempConverted: Double {
-        let tOrigin = Double(tempOrigin) ?? 0
-        var res: Double = 0
+        var temp = Double(tempOrigin) ?? 0
         if indexIn == 0 && indexRes == 1 {
-            res = tOrigin * 9/5 + 32
+            temp *= 9/5
+            temp += 32
         }
         if indexIn == 0 && indexRes == 2 {
-            res = tOrigin + 273.15
+            temp += 273.15
         }
         if indexIn == 1 && indexRes == 0 {
-            res = (tOrigin - 32) * 5/9
+            temp -= 32
+            temp *= 5/9
         }
         if indexIn == 1 && indexRes == 2 {
-            res = (tOrigin - 32) * 5/9 + 273.15
+            temp -= 32
+            temp *= 5/9
+            temp += 273.15
         }
         if indexIn == 2 && indexRes == 0 {
-            res = tOrigin - 273.15
+            temp -= 273.15
         }
         if indexIn == 2 && indexRes == 1 {
-            res = (tOrigin - 273.15) * 9/5 + 32
+            temp -= 273.15
+            temp *= 9/5
+            temp += 32
         }
-        return res
+        return temp
     }
     
     var body: some View {
